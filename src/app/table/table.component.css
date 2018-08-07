@@ -1,0 +1,12 @@
+
+.full-width {
+  width: 100%;
+  margin-top: 50px;
+}
+
+table {
+  width: 100%;
+}
+table button:first-child {
+  margin-right: 30px;
+}

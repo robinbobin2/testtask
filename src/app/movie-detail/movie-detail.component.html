@@ -1,0 +1,20 @@
+<table>
+  <tr>
+    <td colspan="2">
+      <h2>{{item.Title}}</h2>
+    </td>
+  </tr>
+  <tr>
+    <td *ngIf="item.Poster">
+    <img [src]="item.Poster" />
+    </td>
+    <td>
+      Director: {{item.Director}}<br>
+      Runtime: {{item.Runtime}}<br>
+      Released: {{item.Released}}<br>
+      Year: {{item.Year}}<br>
+      Plot: {{item.Plot}}
+    </td>
+  </tr>
+  <a routerLink="/">Return Back</a>
+</table>

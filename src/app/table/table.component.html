@@ -1,0 +1,32 @@
+<mat-form-field class="full-width">
+  <input type="text" placeholder="Название фильма" aria-label="Movie" matInput [formControl]="searchCtrl" [matAutocomplete]="auto">
+  <mat-autocomplete #auto="matAutocomplete">
+    <mat-option
+      *ngFor="let option of options"
+      [value]="option.Title"
+      (onSelectionChange)="onSelect(option)"
+    >
+      {{option.Title}}
+    </mat-option>
+  </mat-autocomplete>
+</mat-form-field>
+<button mat-flat-button *ngIf="selectedOption" (click)="addOptionToList(selectedOption)">Добавить</button>
+
+<table >
+  <tr>
+    <th width="20%"></th>
+    <th width="30%">Название</th>
+    <th width="10%">Год</th>
+    <th width="30%"></th>
+  </tr>
+  <tr *ngFor="let item of list">
+    <td><img *ngIf="item.Poster || item.Poster !== 'N/A'" [src]="item.Poster" width="50px" /> </td>
+    <td>{{item.Title}}</td>
+    <td>{{item.Year}}</td>
+    <td>
+      <button mat-mini-fab (click)="onDelete(item)">-</button>
+      <button mat-flat-button [routerLink]="['/movie', item.imdbID]" > > </button>
+
+    </td>
+  </tr>
+</table>
